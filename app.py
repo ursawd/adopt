@@ -38,25 +38,28 @@ def show_process_pet_form():
     if form.validate_on_submit():
         # POST route processing
         # get responses from form
-        name = form.name.data
-        species = form.species.data
-        photo_url = form.photo_url.data
-        age = form.age.data
-        notes = form.notes.data
-        # create instance of Pet
-        pet1 = Pet(
-            name=name,
-            species=species,
-            photo_url=photo_url,
-            age=age,
-            notes=notes,
-            available=True,
-        )
+        # name = form.name.data
+        # species = form.species.data
+        # photo_url = form.photo_url.data
+        # age = form.age.data
+        # notes = form.notes.data
+        # # create instance of Pet
+        # pet1 = Pet(
+        #     name=name,
+        #     species=species,
+        #     photo_url=photo_url,
+        #     age=age,
+        #     notes=notes,
+        #     available=True,
+        # )
+
+        pet2 = Pet()
+        form.populate_obj(pet2)
         # add pet1 instance to db
-        db.session.add(pet1)
+        db.session.add(pet2)
         db.session.commit()
         # notify user pet added
-        flash(f"Added {name} to Pets List")
+        flash(f"Added {pet2.name} to Pets List")
         # go back to display all pets
         return redirect("/")
     else:

@@ -3,10 +3,11 @@
 {% endblock%} {% block content %}
 <div class="container">
     <h1 class="text-primary">Pets</h1>
+    <h3>Available Pets</h3>
     <div class="row">
-        {% for pet in pets %}
+        {% for pet in pets %} {%if pet.available %}
         <div class="col-4">
-            <div class="pet-card">
+            <div class="pet-item">
                 <img
                     class="pet-image"
                     src="{{pet.photo_url}}"
@@ -20,8 +21,29 @@
                 </p>
             </div>
         </div>
-        {% endfor %}
+        {%endif%} {% endfor %}
     </div>
+    <h3>Un-available Pets</h3>
+    <div class="row">
+        {% for pet in pets %} {%if not pet.available %}
+        <div class="col-4">
+            <div class="pet-item">
+                <img
+                    class="pet-image"
+                    src="{{pet.photo_url}}"
+                    alt="Pet Photo Not Available"
+                />
+                <p>
+                    {{pet.name}} is {% if pet.available %}
+                    <strong>available</strong> {% else %}
+                    <strong>not</strong> available{% endif %}
+                    <a href="/{{pet.id}}">Edit Pet</a>
+                </p>
+            </div>
+        </div>
+        {%endif%} {% endfor %}
+    </div>
+
     <a class="btn btn-success" href="/add">Add a Pet</a>
 </div>
 
