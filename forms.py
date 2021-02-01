@@ -8,12 +8,12 @@ class PetForm(FlaskForm):
 
     name = StringField("Pet Name", validators=[InputRequired()])
     species = SelectField(
-        "Species", choices=[("Dog", "Dog"), ("Otter", "Otter"), ("Rabbit", "Rabbit")], validators=[InputRequired()]
+        "Species", choices=[("Dog", "dog"), ("Otter", "otter"), ("Rabbit", "rabbit")], validators=[InputRequired()]
     )
     # ? Too much trouble during during dev to enforce URL restriction for images
     # ? Not enforcing URL allow use of images in /static/imgs
     # photo = StringField("Photo URL", validators=[URL(require_tld=False), Optional()])
-    photo = StringField("Photo URL", validators=[Optional()])
+    photo_url = StringField("Photo URL", validators=[Optional()])
     age = IntegerField("Age", validators=[Optional(), NumberRange(min=0, max=30)])
     notes = StringField("Notes", validators=[Optional()])
 
@@ -21,6 +21,8 @@ class PetForm(FlaskForm):
 class EditPet(FlaskForm):
     """Form to edit some pet information"""
 
-    photo = StringField("Photo URL", validators=[Optional()])
+    photo_url = StringField("Photo URL", validators=[Optional()])
     notes = StringField("Notes", validators=[Optional()])
-    available = BooleanField("Available", validators=[InputRequired()])
+    # ?    with following line, available was required to checked
+    #    available = BooleanField("Available", validators=[InputRequired()])
+    available = BooleanField("Available")

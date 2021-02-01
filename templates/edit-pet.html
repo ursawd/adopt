@@ -13,17 +13,17 @@
             />
         </div>
         <div>
-            <p>{{ pet.name }} is a</p>
-            <p>{{ pet.species }} who is</p>
-            <p>{{ pet.age }} years old</p>
+            <p class="mb-0 ml-2">{{ pet.name }} is a</p>
+            <p class="mb-0 ml-2">{{ pet.species }} who is</p>
+            <p class="mb-0 ml-2">{{ pet.age }} years old</p>
         </div>
     </div>
 
     <form action="" method="POST">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.photo.label}} <br />
-            {{ form.photo }}
+            {{ form.photo_url.label}} <br />
+            {{ form.photo_url }}
         </p>
         <p>
             {{ form.notes.label}} <br />
@@ -31,9 +31,8 @@
         </p>
         <p>
             {{ form.available.label}} <br />
-            {{ form.available }}
+            {{form.available}}
         </p>
-
         <button class="btn btn-success" type="submit">Update</button>
     </form>
 </div>
