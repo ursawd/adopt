@@ -11,7 +11,7 @@ db.create_all()
 pet1 = Pet(
     name="Spot",
     species="dog",
-    photo_url="/static/imgs/beagle.jpg",
+    photo_url="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg",
     age=5,
     notes="This is a good looking beagle",
     available=True,
