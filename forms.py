@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, IntegerField, TextAreaField, SelectField
 from wtforms.validators import InputRequired, Length, NumberRange, URL, Optional
+from flask_wtf.file import FileField
 
 
 class PetForm(FlaskForm):
@@ -26,3 +27,4 @@ class EditPet(FlaskForm):
     # ?    with following line, available was required to checked
     #    available = BooleanField("Available", validators=[InputRequired()])
     available = BooleanField("Available")
+    filename = FileField("File Upload")

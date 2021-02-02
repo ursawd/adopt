@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         <p>
             {{ form.photo_url.label}} <br />
@@ -32,6 +32,10 @@
         <p>
             {{ form.available.label}} <br />
             {{form.available}}
+        </p>
+        <p>
+            {{ form.filename.label}} <br />
+            {{ form.filename}}
         </p>
         <button class="btn btn-success" type="submit">Update</button>
     </form>
